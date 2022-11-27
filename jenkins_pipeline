@@ -1,0 +1,29 @@
+pipeline {
+
+  agent any
+
+  stages {
+
+    stage('Checkout Source') {
+      steps {
+        git 'https://github.com/pkupryianau/Labk8s.git'
+      }
+    }
+    stage('Deploying db to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "mysql_pod.yml", kubeconfigId: "kubernetes")
+        }
+      }
+    }
+    stage('Deploying wp to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "wp_php_apache_pod.yml", kubeconfigId: "kubernetes")
+        }
+      }
+    }
+
+  }
+
+}
