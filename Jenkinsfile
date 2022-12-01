@@ -4,12 +4,11 @@ pipeline {
         label 'k8s' //set your kubernetes node
     }
 }
-   
+    stages { 
   stage('Deploying db to Kubernetes') {
       steps {
         script {
-          
-          kubernetesDeploy(configs: "mysql_pod.yml", kubeconfigId: "kubernetes")
+                kubernetesDeploy(configs: "mysql_pod.yml", kubeconfigId: "kubernetes")
         }
       }
     }
