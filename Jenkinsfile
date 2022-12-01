@@ -33,7 +33,7 @@ REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:
   }
   
   } 
-  }
+  
   stage('Deploy to Cluster') {
     steps {
       sh 'kubectl create -f mysql_pod.yml --record=true'
