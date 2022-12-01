@@ -29,7 +29,7 @@ REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:
   }
   stage('Deploy to Cluster') {
     steps {
-      sh 'envsubst < ${WORKSPACE}/mysql_pod.yml | microk8s kubectl apply -f -'
+      sh 'kubectl create -f mysql_pod.yml --record=true'
     }
   }
  
