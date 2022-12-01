@@ -28,4 +28,5 @@ REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:
       sh 'kubectl create -f mysql_pod.yml --record=true'
     }
   }
+ }
 }
