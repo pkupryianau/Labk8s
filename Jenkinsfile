@@ -17,6 +17,7 @@ pipeline {
         script {
           kubernetesDeploy(configs: "wp_php_apache_pod.yml", kubeconfigId: "kubernetes")
         }
+   }
+  }
  }
-}
 }
