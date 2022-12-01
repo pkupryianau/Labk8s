@@ -23,7 +23,14 @@ REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:
         sh 'echo No build required for Gateway'
      }
   }
-
+  stage('config cluster') {
+     steps { 
+       kubeconfig(credentialsId: 'LinuxMint', serverUrl: 'https://192.168.49.2:8443') {
+    // some block
+    }
+   }
+  } 
+  }
   
   } 
   }
