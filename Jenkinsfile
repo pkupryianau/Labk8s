@@ -5,18 +5,18 @@ pipeline {
     }
 }
    
-  stages {
-     stage('Preparation') {
-        steps {
-           cleanWs()
-         git credentialsId: 'GitHub_01122022', url: "https://github.com/pkupryianau/Labk8s"
+  stage('Deploying db to Kubernetes') {
+      steps {
+        script {
+          
+          kubernetesDeploy(configs: "mysql_pod.yml", kubeconfigId: "kubernetes")
         }
-   }
-  
-  stage('Deploy to Cluster') {
-    steps {
-      sh 'kubectl create -f mysql_pod.yml --record=true'
+      }
     }
-  }
+    stage('Deploying wp to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "wp_php_apache_pod.yml", kubeconfigId: "kubernetes")
+        }
  }
 }
