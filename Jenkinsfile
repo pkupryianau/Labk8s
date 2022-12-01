@@ -1,7 +1,7 @@
 pipeline {
     agent {
     node {
-        label 'k8s' //set your kubernetes node
+        label 'minikube' //set your kubernetes node
     }
 }
    environment {
