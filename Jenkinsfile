@@ -7,15 +7,13 @@ pipeline {
     stages { 
   stage('Deploying db to Kubernetes') {
       steps {
-        script {
-                kubernetesDeploy(configs: "mysql_pod.yml", kubeconfigId: "kubernetes")
+        sh 'kubectl create -f mysql_pod.yml'
         }
       }
     }
     stage('Deploying wp to Kubernetes') {
       steps {
-        script {
-          kubernetesDeploy(configs: "wp_php_apache_pod.yml", kubeconfigId: "kubernetes")
+        sh 'kubectl create -f wp_php_apache_pod.yml'
         }
    }
   }
