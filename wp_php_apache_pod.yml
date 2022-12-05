@@ -24,6 +24,10 @@ spec:
           #volumeMounts:
           #  - name: wordpress-data
           #    mountPath: /var/www
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
           env: 
             - name: WORDPRESS_DB_HOST # host db
               value: mysql-service.default.svc.cluster.local # read
