@@ -4,6 +4,7 @@ metadata:
   name: mysql
   labels: 
     app: mysql
+  namespace: devops-tools
 spec:
   replicas: 1
   selector:
