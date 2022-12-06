@@ -7,9 +7,13 @@ pipeline {
     stage('Checkout Source') {
       steps {
         git 'https://github.com/pkupryianau/Labk8s.git'
-        
       }
     }
+    agent {
+    kubernetes {
+      yamlFile 'mysql_pod.yml'
+    }
+  }
     stage('Deploying db to Kubernetes') {
       steps {
         script {
