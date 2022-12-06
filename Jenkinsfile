@@ -6,7 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'http://192.168.100.7/gitlab-instance-0df057cb/k8s.git'
+        git 'https://github.com/pkupryianau/Labk8s.git'
         
       }
     }
